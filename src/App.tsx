@@ -22,7 +22,7 @@ const getPasswordError = (password: string): string => {
 
 const HeaderDiv = styled.div`
   margin-top: -25px;
-  padding: 15px 10px 1px 20px;
+  padding: 15px 10px 15px 20px;
   background-color: black;
   color: white;
 `;

@@ -1,4 +1,4 @@
-import React, { type HTMLInputTypeAttribute } from 'react';
+import React, { type HTMLInputTypeAttribute, useState } from 'react';
 import styled from 'styled-components';
 
 type InputProps = {
@@ -36,7 +36,9 @@ export const Input = ({
   error = '',
   onChange,
 }: InputProps) => {
+  const [value, setValue] = useState('');
   const changeHandeler = (thing: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(thing?.target?.value ?? '');
     onChange(thing?.target?.value ?? '');
   };
 
@@ -51,7 +53,7 @@ export const Input = ({
           minLength={minLength}
           onChange={changeHandeler}
         />
-        {error && <InputError>{error}</InputError>}
+        {value && error && <InputError>{error}</InputError>}
       </div>
     </FlexRowWrapper>
   );
